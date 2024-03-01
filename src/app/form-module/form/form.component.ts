@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Customer } from '../models/Customer';
 import { FormControl, FormGroup } from '@angular/forms';
 @Component({
-  selector: 'app-form',
+  selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
   styleUrl: './form.component.css',
 })
@@ -19,6 +18,6 @@ export class FormComponent {
   });
 
   createUser = () => {
-    this.customerForm.value;
-  } 
+    console.log(this.customerForm.value)
+  }
 }
