@@ -33,12 +33,12 @@ export class CustomerService{
             'firstName': 'Michael',
             'lastName': 'Jacksons',
             'jobTitle': 'Network Administrator',
-            'dob': '2000-01-1',
+            'dob': '2000-01-01',
             'salary': 8000000,
             'address': 'Scientia Raya No. 18',
             'gender': 'Male',
             'isMarried': false
-        } 
+        }
 ]);
     
     customerList$ = this.customer_list.asObservable();

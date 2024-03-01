@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let customer of customerList">
-            <td>{{ customer.firstName }}  {{ customer.lastName }}</td>
+            <td><a routerLink="/details">{{ customer.firstName }}  {{ customer.lastName }}</a></td>
             <td>{{ customer.jobTitle }}</td>
             <td>{{ customer.dob }}</td>
             <td>{{ customer.gender }}</td>
