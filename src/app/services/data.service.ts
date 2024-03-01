@@ -11,7 +11,7 @@ export class CustomerService{
             'firstName': 'John',
             'lastName': 'Doe',
             'jobTitle': 'Software Engineer',
-            'dob': '05 Aug 1990',
+            'dob': '1990-10-05',
             'salary': 120000,
             'address': '123 Main St',
             'gender': 'Male',
@@ -22,7 +22,7 @@ export class CustomerService{
             'firstName': 'Jane',
             'lastName': 'Smith',
             'jobTitle': 'UX Designer',
-            'dob': '20 Jan 1985',
+            'dob': '1985-01-20',
             'salary': 95000,
             'address': '456 Oak Ave',
             'gender': 'Female',
@@ -33,12 +33,12 @@ export class CustomerService{
             'firstName': 'Michael',
             'lastName': 'Johnson',
             'jobTitle': 'Network Administrator',
-            'dob': '15 Sep 1995',
+            'dob': '1995-08-15',
             'salary': 80000,
             'address': '789 Pine Blvd',
             'gender': 'Male',
             'isMarried': true
-        }    
+        } 
 ]);
     
     customerList$ = this.customer_list.asObservable();

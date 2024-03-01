@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomerService } from '../services/data.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,20 +8,23 @@ import { v4 as uuidv4 } from 'uuid';
   templateUrl: './customer-form.component.html',
   styleUrl: './form.component.css',
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
   // Inject Customer Services
   constructor(
     private customerService: CustomerService,
     private route: ActivatedRoute
-    ){
+    ){}
+  
+    ngOnInit() {
       this.route.queryParams.subscribe((params) => {
-        const customerId = params['id'];
-        if(customerId) {
-          const customer = this.customerService.getDatabyId(customerId);
-          this.customerForm.patchValue(customer)
-        }
-      })
-    }
+          const customerId = params['uid'];
+          if(customerId) {
+              const customer = this.customerService.getDatabyId(customerId);
+              this.customerForm.patchValue(customer);
+              console.log(customer);
+          }
+      });
+  }
 
   customerForm = new FormGroup({
     id: new FormControl(uuidv4()),
