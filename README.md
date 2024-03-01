@@ -1,6 +1,6 @@
-# Test Project
+# Learn Angular
 
-For application:
+For test the app:
 ```
 git clone https://github.com/VannWasHere/land-angular.git
 ```
