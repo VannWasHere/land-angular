@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared.module';
+import { CustomerService } from './services/data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,9 @@ import { FormComponent } from './form/form.component';
     SharedModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CustomerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
