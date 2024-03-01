@@ -2,7 +2,7 @@
     <section class="container">
         <div class="d-flex justify-content-between">
             <h2>Add Customer</h2>
-            <button class="btn btn-warning">Back</button>
+            <a routerLink="/"><button class="btn btn-warning">Back</button></a>
         </div>
         <form [formGroup]="customerForm" (submit)="createUser()">
             <div class="row">
