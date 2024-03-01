@@ -1,6 +1,57 @@
 <div class="container">
     <div class="d-flex justify-content-between mb-5">
         <h2>List Customer</h2>
-        <a routerLink="/form"><button class="btn btn-primary">Add Customer</button></a>
+        <a routerLink="/"><button class="btn btn-primary">Home</button></a>
+    </div>
+    <div class="">
+        <div class="row">
+                <section class="col">
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label font-weight-bold">First Name</label><br>
+                        <p>{{ customer_view.firstName }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="job_title" class="form-label font-weight-bold">Job Title</label><br>
+                        
+                        <p>{{ customer_view.jobTitle }}</p>
+                    </div>
+                </section>
+                <section class="col">
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label font-weight-bold">Last Name</label><br>
+                        
+                        <p>{{ customer_view.lastName }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Date Of Birth" class="form-label font-weight-bold">Date Of Birth</label><br>
+                        
+                        <p>{{ customer_view.dob }}</p>
+                    </div>
+                </section>
+                <div class="row">
+                    <section class="col-10">
+                        <div class="mb-3">
+                            <label for="salary" class="form-label font-weight-bold">Salary</label><br>
+                            
+                            <p>{{ customer_view.salary }}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label font-weight-bold">Address</label><br>
+                            
+                            <p>{{ customer_view.address }}</p>
+                        </div>
+                    </section>
+                    <section class="col-2">
+                        <div class="mb-3">
+                            <label for="gender" class="form-label font-weight-bold">Gender</label> <br>
+                            <p>{{ customer_view.gender}}</p>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="isMarried" class="form-label font-weight-bold">isMarried</label> <br>
+                            <p>{{ customer_view.isMarried}}</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
     </div>
 </div>
