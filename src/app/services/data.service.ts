@@ -8,44 +8,49 @@ export class CustomerService{
     private customer_list = new BehaviorSubject<any[]>([
         {
             'id': uuidv4(),
-            'firstName': 'John',
-            'lastName': 'Doe',
+            'firstName': 'Ilham',
+            'lastName': 'Kurniawan',
             'jobTitle': 'Software Engineer',
             'dob': '1990-10-05',
-            'salary': 120000,
-            'address': '123 Main St',
+            'salary': 7000000,
+            'address': 'Jalan Merdeka Raya',
             'gender': 'Male',
             'isMarried': true
         },
         {
             'id': uuidv4(),
-            'firstName': 'Jane',
-            'lastName': 'Smith',
-            'jobTitle': 'UX Designer',
+            'firstName': 'Windi',
+            'lastName': 'Suprati',
+            'jobTitle': 'Accountant',
             'dob': '1985-01-20',
-            'salary': 95000,
-            'address': '456 Oak Ave',
+            'salary': 4700000,
+            'address': 'Perumahan Cipete, Jakarta',
             'gender': 'Female',
             'isMarried': false
         },
         {
             'id': uuidv4(),
             'firstName': 'Michael',
-            'lastName': 'Johnson',
+            'lastName': 'Jacksons',
             'jobTitle': 'Network Administrator',
-            'dob': '1995-08-15',
-            'salary': 80000,
-            'address': '789 Pine Blvd',
+            'dob': '2000-01-1',
+            'salary': 8000000,
+            'address': 'Scientia Raya No. 18',
             'gender': 'Male',
-            'isMarried': true
+            'isMarried': false
         } 
 ]);
     
     customerList$ = this.customer_list.asObservable();
-    addData = (data: object) => {
-        const current_list = this.customer_list.value;
-        const updated_list = [...current_list, data]
-        this.customer_list.next(updated_list);
+    addData = (data: any) => {
+        const existCustomer = this.customer_list.value.find(customer => customer.id == data.id)
+        if(existCustomer) {
+            Object.assign(existCustomer, data)
+        } else {
+            const current_list = this.customer_list.value;
+            const updated_list = [...current_list, data]
+            this.customer_list.next(updated_list);
+        }
     }
 
     getData = () => {
@@ -54,5 +59,12 @@ export class CustomerService{
 
     getDatabyId = (id: string) => {
         return this.customer_list.value.find(customer => customer.id == id);
+    }
+
+    deleteData = (id: string) => {
+        const index = this.customer_list.value.findIndex(customer => customer.id == id)
+        if(index > -1) {
+            this.customer_list.value.splice(index, 1)
+        }
     }
 }

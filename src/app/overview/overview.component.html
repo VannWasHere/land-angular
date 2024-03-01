@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let customer of customerList">
-            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.firstName }}  {{ customer.lastName }}</td>
             <td>{{ customer.jobTitle }}</td>
             <td>{{ customer.dob }}</td>
             <td>{{ customer.gender }}</td>
@@ -28,7 +28,7 @@
             <td>
                 <div>
                     <button (click)="editData(customer.id)" class="btn btn-primary mx-2">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button (click)="deleteData(customer.id)" class="btn btn-danger">Delete</button>
                 </div>
             </td>
           </tr>

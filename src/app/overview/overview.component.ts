@@ -21,4 +21,8 @@ export class OverviewComponent implements OnInit {
   editData(id: string) {
     this.router.navigate(['/form'], {queryParams: {uid: id}})
   }
+
+  deleteData(id: string) {
+    this.customerService.deleteData(id)
+  }
 }

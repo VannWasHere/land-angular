@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CustomerService } from '../services/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-customer-form',
@@ -12,11 +12,12 @@ export class FormComponent implements OnInit{
   // Inject Customer Services
   constructor(
     private customerService: CustomerService,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
     ){}
   
     ngOnInit() {
-      this.route.queryParams.subscribe((params) => {
+      this.activatedRoute.queryParams.subscribe((params) => {
           const customerId = params['uid'];
           if(customerId) {
               const customer = this.customerService.getDatabyId(customerId);
@@ -43,5 +44,6 @@ export class FormComponent implements OnInit{
     const newCustomer = this.customerForm.value;
     this.customerService.addData(newCustomer);
     this.customerForm.reset()
+    this.router.navigate(['/'])
   }
 }
