@@ -3,7 +3,7 @@
         <h2>List Customer</h2>
         <a routerLink="/add"><button class="btn btn-primary">Add Customer</button></a>
     </div>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col-1">Full Name</th>
@@ -17,18 +17,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Justine</td>
-            <td>Job</td>
-            <td>DoB</td>
-            <td>Gender</td>
-            <td>Salary</td>
-            <td>Address</td>
-            <td>isMarried</td>
+          <tr *ngFor="let customer of customerList">
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.jobTitle }}</td>
+            <td>{{ customer.dob }}</td>
+            <td>{{ customer.gender }}</td>
+            <td>{{ customer.salary }}</td>
+            <td>{{ customer.address }}</td>
+            <td [ngClass]="{'text-danger': customer.isMarried === false, 'text-success': customer.isMarried === true}">{{ customer.isMarried }}</td>
             <td>
                 <div>
-                    <button class="btn btn-primary mx-2">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <a routerLink="/add"><button class="btn btn-primary mx-2">Edit</button></a>
+                    <a><button class="btn btn-danger">Delete</button></a>
                 </div>
             </td>
           </tr>
