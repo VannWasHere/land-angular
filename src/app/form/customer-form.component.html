@@ -1,0 +1,69 @@
+<main>
+    <section class="container">
+        <div class="d-flex justify-content-between">
+            <h2>Add Customer</h2>
+            <button class="btn btn-warning">Back</button>
+        </div>
+        <form [formGroup]="customerForm" (submit)="createUser()">
+            <div class="row">
+                <section class="col">
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label font-weight-bold">First Name</label>
+                        <input required  type="text" class="form-control" id="first_name" placeholder="Justine" formControlName="firstname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="job_title" class="form-label font-weight-bold">Job Title</label>
+                        <input required type="text" class="form-control" id="job_title" placeholder="Application Developer" formControlName="jobTitle">
+                    </div>
+                </section>
+                <section class="col">
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label font-weight-bold">Last Name</label>
+                        <input required type="text" class="form-control" id="last_name" placeholder="Donovan" formControlName="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Date Of Birth" class="form-label font-weight-bold">Date Of Birth</label>
+                        <input required type="date" class="form-control" id="Date Of Birth" formControlName="dob">
+                    </div>
+                </section>
+                <div class="row">
+                    <section class="col-10">
+                        <div class="mb-3">
+                            <label for="salary" class="form-label font-weight-bold">Salary</label>
+                            <input required type="number" class="form-control" id="salary" placeholder="name@example.com" formControlName="salary">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label font-weight-bold">Address</label>
+                            <textarea required class="form-control" placeholder="Jalan Bekasi Jaya" id="address" style="height: 100px" formControlName="address"></textarea>
+                        </div>
+                    </section>
+                    <section class="col-2">
+                        <div class="mb-3">
+                            <label for="gender" class="form-label font-weight-bold">Gender</label> <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender-radio" id="inlineRadio1" value="Male" formControlName="gender">
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender-radio" id="inlineRadio2" value="Female" formControlName="gender">
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="isMarried" class="form-label font-weight-bold">isMarried</label> <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="true" id="isMarried" formControlName="isMarried">
+                                <label class="form-check-label" for="isMarried">
+                                  Yes
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-success float-end" type="button">Save</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</main>
