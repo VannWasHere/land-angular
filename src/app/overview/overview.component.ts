@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -7,9 +8,17 @@ import { CustomerService } from '../services/data.service';
 })
 export class OverviewComponent implements OnInit {
   customerList: any[] = [];
-  constructor(private customerService: CustomerService){}
+  constructor(
+    private customerService: CustomerService,
+    private router: Router
+    ){}
   // OnInit => When the component rendered this func will run 
   ngOnInit() {
     this.customerList = this.customerService.getData()
+  }
+
+  // Methods
+  editData(id: string) {
+    this.router.navigate(['/form'], {queryParams: {uid: id}})
   }
 }

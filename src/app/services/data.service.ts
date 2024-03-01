@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-
+import { v4 as uuidv4 } from 'uuid';
 @Injectable ({
     providedIn: 'root'
 })
 export class CustomerService{
     private customer_list = new BehaviorSubject<any[]>([
         {
+            'id': uuidv4(),
             'firstName': 'John',
             'lastName': 'Doe',
             'jobTitle': 'Software Engineer',
@@ -17,6 +18,7 @@ export class CustomerService{
             'isMarried': true
         },
         {
+            'id': uuidv4(),
             'firstName': 'Jane',
             'lastName': 'Smith',
             'jobTitle': 'UX Designer',
@@ -27,6 +29,7 @@ export class CustomerService{
             'isMarried': false
         },
         {
+            'id': uuidv4(),
             'firstName': 'Michael',
             'lastName': 'Johnson',
             'jobTitle': 'Network Administrator',
@@ -47,5 +50,9 @@ export class CustomerService{
 
     getData = () => {
         return this.customer_list.value
+    }
+
+    getDatabyId = (id: string) => {
+        return this.customer_list.value.find(customer => customer.id == id);
     }
 }
